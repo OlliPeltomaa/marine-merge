@@ -1,0 +1,47 @@
+{
+    "type": "fromPhysicsEditor",
+    "isStatic": false,
+    "density": 0.8,
+    "restitution": 0.1,
+    "friction": 0.1,
+    "frictionAir": 0.001,
+    "frictionStatic": 0.5,
+    "collisionFilter": { "group": 0, "category": 1, "mask": 255 },
+    "label": "green-fish.png",
+    "fixtures": [
+      {
+        "label": "green-fish.png-fixture-0",
+        "isSensor": false,
+        "vertices": [
+          [
+            { "x": 48, "y": 51 },
+            { "x": 46, "y": 46 },
+            { "x": 47, "y": 40 },
+            { "x": 69, "y": 28 },
+            { "x": 101, "y": 25 },
+            { "x": 103, "y": 43 }
+          ],
+          [
+            { "x": 43, "y": 53 },
+            { "x": 48, "y": 51 },
+            { "x": 103, "y": 43 },
+            { "x": 121, "y": 61 },
+            { "x": 117, "y": 88 },
+            { "x": 97, "y": 108 },
+            { "x": 68, "y": 105 },
+            { "x": 45, "y": 88 }
+          ],
+          [
+            { "x": 45, "y": 88 },
+            { "x": 35, "y": 96 },
+            { "x": 25, "y": 94 },
+            { "x": 7, "y": 76 },
+            { "x": 7, "y": 65 },
+            { "x": 27, "y": 46 },
+            { "x": 36, "y": 46 },
+            { "x": 43, "y": 53 }
+          ]
+        ]
+      }
+    ]
+  }
