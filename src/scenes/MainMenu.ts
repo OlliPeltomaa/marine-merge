@@ -23,9 +23,6 @@ export class MainMenu extends Scene
             frequency: 300
         });
 
-        // Play bubbling sound
-        this.sound.play('bubbles');
-
         // Add the game logo
         this.logo = this.add.image(this.scale.width / 2, 0, 'logo');
         // Adjust the y-position so it is at the top of the screen with a padding

@@ -81,7 +81,7 @@ export class Game extends Scene
         this.scoreText = this.add.text(this.scale.width/2, 20, 'Score: 0', {
             fontSize: '32px',
             color: '#ffffff',
-            fontFamily: 'Arial Black',
+            fontFamily: 'Arial Black, Gadget, sans-serif',
             stroke: '#350f61', strokeThickness: 8,
             align: 'center'
         });

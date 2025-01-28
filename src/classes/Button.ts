@@ -60,7 +60,7 @@ export class Button extends Phaser.GameObjects.Container {
     private createText(buttonText: string, x: number, y: number) {
         // Add a text to the button
         const textObject = this.scene.add.text(x, y, buttonText, {
-            fontFamily: 'Arial Black', fontSize: 38, color: '#ffffff',
+            fontFamily: 'Arial Black, Gadget, sans-serif', fontSize: 38, color: '#ffffff',
             stroke: '#350f61', strokeThickness: 8,
             align: 'center'
         }).setOrigin(0.5);

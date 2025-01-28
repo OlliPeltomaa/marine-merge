@@ -32,7 +32,7 @@ export class GameOver extends Scene
 
         // Set modal header
         this.headerText = this.add.text(this.scale.width / 2, this.background.getTopCenter().y + 70, 'Game Over', {
-            fontFamily: 'Arial Black', fontSize: 32, color: '#ffffff',
+            fontFamily: 'Arial Black, Gadget, sans-serif', fontSize: 32, color: '#ffffff',
             stroke: '#350f61', strokeThickness: 8,
             align: 'center'
         });
@@ -40,7 +40,7 @@ export class GameOver extends Scene
 
         // Set text
         this.text = this.add.text(this.scale.width / 2, this.headerText.y + 100, `Final Score: ${this.finalScore}`, {
-            fontFamily: 'Arial Black', fontSize: 24, color: '#ffffff',
+            fontFamily: 'Arial Black, Gadget, sans-serif', fontSize: 24, color: '#ffffff',
             stroke: '#350f61', strokeThickness: 5,
             align: 'center'
         }).setOrigin(0.5);

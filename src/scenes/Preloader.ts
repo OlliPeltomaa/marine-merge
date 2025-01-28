@@ -51,7 +51,6 @@ export class Preloader extends Scene
 
         // Audio
         this.load.audio('pop', 'audio/pop.wav');
-        this.load.audio('bubbles', 'audio/bubbles.wav');
     }
 
     create ()
