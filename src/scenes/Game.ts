@@ -66,6 +66,31 @@ export class Game extends Scene
         this.scoreText.setText(`Score: ${this.score}`);
     }
 
+    /**
+     * Merge two fish in the collision event into one
+     * @param fishA first fish
+     * @param fishB second fish
+     */
+    mergeFish(fishA: Fish, fishB: Fish) {
+        const x = fishA.x;
+        const y = fishA.y;
+        const rotation = fishA.rotation;
+        const nextTexture = fishMap[fishA.texture.key].next;
+
+        if (nextTexture) {
+            // Remove previous fish
+            fishB.destroy();
+            fishA.destroy();
+
+            // Create a new fish
+            const newFish = new Fish(this.matter.world, x, y, nextTexture);
+            newFish.setRotation(rotation);
+
+            this.updateScore(fishMap[newFish.texture.key].points);
+            this.sound.play('pop');
+        }
+    }
+
     create ()
     {
         // Create the walls
@@ -144,27 +169,9 @@ export class Game extends Scene
         
                 // Check if both are Fish instances
                 if (gameObjectA instanceof Fish && gameObjectB instanceof Fish) {
-        
                     // Check for matching textures
                     if (gameObjectA.body && gameObjectB.body && gameObjectA.texture.key === gameObjectB.texture.key) {
-                        const x = gameObjectA.x;
-                        const y = gameObjectA.y;
-                        const rotation = gameObjectA.rotation;
-                        const nextTexture = fishMap[gameObjectA.texture.key].next;
-
-                        if (nextTexture) {
-                            // Remove previous fish
-                            gameObjectB.destroy();
-                            gameObjectA.destroy();
-
-                            // Create a new fish
-                            const newFish = new Fish(this.matter.world, x, y, nextTexture);
-                            newFish.setRotation(rotation);
-
-                            this.updateScore(fishMap[newFish.texture.key].points);
-                            this.sound.play('pop');
-                        }
-    
+                        this.mergeFish(gameObjectA, gameObjectB);
                     }
                 }
             });
