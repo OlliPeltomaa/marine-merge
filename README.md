@@ -2,12 +2,12 @@
 
 The game is playable [here!](https://ollipeltomaa.github.io/marine-merge/)
 
-![Game menu](menu.png =300x)
+<img src="menu.png" height="400" alt="Game menu"/>
 
 ## Game idea
 In this game your goal is to score points by merging two fish of the same kind. You can drop a fish into a container by left clicking the mouse or by tapping on the screen on mobile. You can move the fish that you drop horizontally by pressing the screen/keeping left mouse button pressed, and drop the fish at your desired location by releasing the mouse/taking the finger of the screen. When two fish merge, they combine into a bigger fish. The game ends when the container is full, and the fish in the container touch the fish about to be dropped next.
 
-![Gameplay](gameplay.png =300x)
+<img src="gameplay.png" height="400" alt="Gameplay"/>
 
 ### Points from merging different kinds of fish
 - Purple fish = 2 points
