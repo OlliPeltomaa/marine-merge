@@ -120,7 +120,6 @@ export class Game extends Scene
             this.time.delayedCall(1000, () => {
                 this.fish = new Fish(this.matter.world, this.scale.width / 2, this.walls.getTopCenter().y - 50, this.getRandomFish());
                 this.fish.setStatic(true);
-                this.fish.setZ(1);
                 this.add.existing(this.fish);
             });
         });

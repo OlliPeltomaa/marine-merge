@@ -1,13 +1,15 @@
 import { Scene } from 'phaser';
 import { Button } from '../classes/Button';
 
+/**
+ * The gameover modal that is displayed when the player loses
+ */
 export class GameOver extends Scene
 {
     background: Phaser.GameObjects.Image;
     homeButton: Button;
     retryButton: Button;
     finalScore: number = 0;
-
     headerText: Phaser.GameObjects.Text;
     text: Phaser.GameObjects.Text;
 

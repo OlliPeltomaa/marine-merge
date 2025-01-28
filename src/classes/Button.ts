@@ -14,10 +14,6 @@ export class Button extends Phaser.GameObjects.Container {
         this.image = this.createImage(width, height, imageFile, x, y);
         this.text = this.createText(buttonText, x, y);
 
-        // Add the image and text to the container
-        //this.add(this.image);
-        //this.add(this.text);
-
         // Scale the image on hover
         this.image.on('pointerover', () => {
             this.image.displayWidth *= 1.05;
