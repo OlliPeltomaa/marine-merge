@@ -49,7 +49,7 @@ export class Game extends Scene
     }
 
     /**
-     * Switch to a GameOver scene when the game area is full
+     * Launch GameOver modal when the game area is full
      */
     gameOver() {
         this.input.off('pointermove');
@@ -57,6 +57,10 @@ export class Game extends Scene
         this.scene.launch('GameOver', { score: this.score });
     }
 
+    /**
+     * Add points from merge to the total score
+     * @param points how many points are added to the total score
+     */
     updateScore(points: number) {
         this.score += points;
         this.scoreText.setText(`Score: ${this.score}`);
@@ -117,6 +121,7 @@ export class Game extends Scene
             this.fish.setStatic(false);
             this.fish = undefined;
 
+            // Create a new fish
             this.time.delayedCall(1000, () => {
                 this.fish = new Fish(this.matter.world, this.scale.width / 2, this.walls.getTopCenter().y - 50, this.getRandomFish());
                 this.fish.setStatic(true);
@@ -141,7 +146,7 @@ export class Game extends Scene
                 if (gameObjectA instanceof Fish && gameObjectB instanceof Fish) {
         
                     // Check for matching textures
-                    if (gameObjectA.body && gameObjectA.texture.key === gameObjectB.texture.key) {
+                    if (gameObjectA.body && gameObjectB.body && gameObjectA.texture.key === gameObjectB.texture.key) {
                         const x = gameObjectA.x;
                         const y = gameObjectA.y;
                         const rotation = gameObjectA.rotation;
