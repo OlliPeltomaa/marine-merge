@@ -3,7 +3,7 @@ name: Deploy Phaser game to GitHub Pages
 on:
   push:
     branches:
-      - main  # Trigger deployment when you push to the 'main' branch
+      - main
 
 jobs:
   build_and_deploy:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20'  # Choose your preferred Node.js version
+          node-version: '20.10.0'
 
       - name: Install dependencies
         run: |
@@ -26,13 +26,8 @@ jobs:
         run: |
           npm run build
 
-      - name: Configure Git
-        run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
-
       - name: Deploy to GitHub Pages
-        run: |
-          npm run deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build
+          branch: gh-pages
