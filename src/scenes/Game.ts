@@ -37,6 +37,7 @@ export class Game extends Scene
     gameOver() {
         this.input.off('pointermove');
         this.input.off('pointerup');
+        this.homeButton.setInteractive(false);
         this.scene.launch('GameOver', { score: this.score });
     }
 
@@ -159,6 +160,5 @@ export class Game extends Scene
                 }
             });
         });
-    
     }
 }
