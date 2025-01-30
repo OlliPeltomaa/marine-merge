@@ -68,4 +68,12 @@ export class Button extends Phaser.GameObjects.Container {
 
         return textObject;
     }
+
+    /**
+     * Remove the button from the scene
+     */
+    public removeFromScene() {
+        this.text.destroy();
+        this.image.destroy();
+    }
 }

@@ -34,10 +34,10 @@ export class Game extends Scene
     /**
      * Launch GameOver modal when the game area is full
      */
-    gameOver() {
+    handleGameOver() {
         this.input.off('pointermove');
         this.input.off('pointerup');
-        this.homeButton.setInteractive(false);
+        this.homeButton.removeFromScene();
         this.scene.launch('GameOver', { score: this.score });
     }
 
@@ -148,7 +148,8 @@ export class Game extends Scene
 
                 // If the fish about to be dropped collides with another fish, game ends
                 if (gameObjectA === this.fish || gameObjectB === this.fish) {
-                    this.gameOver();
+                    this.handleGameOver();
+                    return;
                 }
         
                 // Check if both are Fish instances
