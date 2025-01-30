@@ -2,6 +2,8 @@ import { Scene } from 'phaser';
 import { Fish } from '../classes/Fish';
 import { fishMap } from '../constants';
 import { Button } from '../classes/Button';
+import { getRandomFish } from '../gameLogic';
+
 export class Game extends Scene
 {
     walls: Phaser.Physics.Matter.Image;
@@ -27,25 +29,6 @@ export class Game extends Scene
             return true;
         }
         return false;
-    }
-
-    /**
-     * Get a random fish texture based on their rarity
-     * @returns A string
-     */
-    getRandomFish(): string {
-        const random = Math.random();
-
-        const fishArray = Object.entries(fishMap);
-        for (let i = 0; i < fishArray.length; i++) {
-            const fishData = fishArray[i][1];
-            if (random <= fishData.rarity) {
-                return fishArray[i][0];
-            }
-        }
-
-        // defaults to the first fish type
-        return fishArray[0][0];
     }
 
     /**
@@ -123,7 +106,7 @@ export class Game extends Scene
 
 
         // Create the initial fish
-        this.fish = new Fish(this.matter.world, this.scale.width / 2, this.walls.getTopCenter().y -50, this.getRandomFish());
+        this.fish = new Fish(this.matter.world, this.scale.width / 2, this.walls.getTopCenter().y -50, getRandomFish(Math.random()));
         this.fish.setStatic(true);
 
         // Update the fish's x position to match the pointer's x position
@@ -148,7 +131,7 @@ export class Game extends Scene
 
             // Create a new fish
             this.time.delayedCall(1000, () => {
-                this.fish = new Fish(this.matter.world, this.scale.width / 2, this.walls.getTopCenter().y - 50, this.getRandomFish());
+                this.fish = new Fish(this.matter.world, this.scale.width / 2, this.walls.getTopCenter().y - 50, getRandomFish(Math.random()));
                 this.fish.setStatic(true);
                 this.add.existing(this.fish);
             });
